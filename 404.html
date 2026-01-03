@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // GitHub Pages 404 handler for multi-page static sites
+    const path = window.location.pathname;
+    const base = '/';
+
+    // If the path doesn't end with .html and it's not the root, redirect to .html version
+    if (path !== '/' && !path.endsWith('.html') && !path.endsWith('/')) {
+      window.location.replace(base + path.substring(1) + '.html');
+    } else if (path.endsWith('/') && path !== '/') {
+      // Handle trailing slash
+      window.location.replace(base + path.substring(1, path.length - 1) + '.html');
+    } else {
+      // Redirect to home if nothing matches
+      window.location.replace(base);
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
